@@ -32,6 +32,14 @@ export const Home: FC = () => {
             Contact
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            style={({ isActive }) => (isActive ? { color: "blue" } : undefined)}
+            to="/form"
+          >
+            Form
+          </NavLink>
+        </li>
       </ul>
     </>
   );
