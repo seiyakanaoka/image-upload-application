@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 
-// import { Home } from "@/";
+import { Route as RoutePage } from "@/components/Route";
 
-import "./App.css";
+import "./App.scss";
 
 const App = () => {
   const [count, setCount] = useState(0);
 
   return (
     <div className="App">
-      <h1>Hello React Router</h1>
+      <RoutePage />
     </div>
   );
 };
