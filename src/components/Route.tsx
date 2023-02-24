@@ -5,6 +5,8 @@ import { Home } from "@/pages/Home";
 import { About } from "@/pages/about/About";
 import { Contact } from "@/pages/contact/Contact";
 import { Form } from "@/pages/form/Form";
+import { Login } from "@/pages/login";
+import { Test } from "@/pages/test";
 import { NotFound } from "@/pages/404/404";
 
 export const Route: FC = () => {
@@ -16,6 +18,8 @@ export const Route: FC = () => {
         <RouteDom path="/about" element={<About />} />
         <RouteDom path="/contact" element={<Contact />} />
         <RouteDom path="/form" element={<Form />} />
+        <RouteDom path="/login" element={<Login />} />
+        <RouteDom path="/test" element={<Test />} />
         <RouteDom path="*" element={<NotFound />} />
       </Routes>
     </>

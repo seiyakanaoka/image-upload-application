@@ -1,12 +1,16 @@
 import { Route } from "@/components/Route";
 
+import { authContext } from "@/context/authContext";
+
 import "./App.scss";
 
 const App = () => {
   return (
-    <div className="App">
-      <Route />
-    </div>
+    <authContext.Provider value="">
+      <div className="App">
+        <Route />
+      </div>
+    </authContext.Provider>
   );
 };
 

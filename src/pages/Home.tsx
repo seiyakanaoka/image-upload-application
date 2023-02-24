@@ -22,7 +22,7 @@ export const Home: FC = () => {
             style={({ isActive }) => (isActive ? { color: "blue" } : undefined)}
             to="/"
           >
-            Hone
+            Home
           </NavLink>
         </li>
         <li>
@@ -47,6 +47,14 @@ export const Home: FC = () => {
             to="/form"
           >
             Form
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            style={({ isActive }) => (isActive ? { color: "blue" } : undefined)}
+            to="/test"
+          >
+            Test
           </NavLink>
         </li>
       </ul>
