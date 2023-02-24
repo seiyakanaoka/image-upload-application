@@ -1,5 +1,6 @@
-import { FC } from "react";
-import { Routes, Route as RouteDom } from "react-router-dom";
+import { FC, useEffect, useContext } from "react";
+import { Routes, Route as RouteDom, useNavigate } from "react-router-dom";
+import { AuthContext } from "@/context/authContext";
 
 import { Home } from "@/pages/Home";
 import { About } from "@/pages/about/About";
@@ -10,6 +11,16 @@ import { Test } from "@/pages/test";
 import { NotFound } from "@/pages/404/404";
 
 export const Route: FC = () => {
+  const navigate = useNavigate();
+
+  const authContext = useContext(AuthContext);
+
+  useEffect(() => {
+    if (authContext == undefined) {
+      navigate("/login");
+    }
+  }, [authContext]);
+
   return (
     <>
       <h1>TOP</h1>

@@ -2,7 +2,7 @@ import { Route } from "@/components/Route";
 
 import { useCookie } from "@/hooks/useCookie";
 
-import { authContext } from "@/context/authContext";
+import { AuthContext } from "@/context/authContext";
 
 import "./App.scss";
 
@@ -12,11 +12,11 @@ const App = () => {
   const authCookie = getCookie("userSession");
 
   return (
-    <authContext.Provider value={authCookie}>
+    <AuthContext.Provider value={authCookie}>
       <div className="App">
         <Route />
       </div>
-    </authContext.Provider>
+    </AuthContext.Provider>
   );
 };
 
