@@ -1,8 +1,17 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { getProducts } from "@/actions/productAction";
 
 export const Home: FC = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetch = async () => {
+      const data = await getProducts("/api/product");
+      console.log("data: ", data);
+    };
+    fetch();
+  }, []);
 
   return (
     <>
