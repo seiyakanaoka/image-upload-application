@@ -1,10 +1,14 @@
-import { FC, ChangeEventHandler, useState } from "react";
+import { FC, ChangeEventHandler, useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "@/context/authContext";
+import { COOKIE_KEY } from "@/constants/cookie";
 import { useAuth } from "@/hooks/api/useAuth";
 import { useCookie } from "@/hooks/useCookie";
 
 export const Login: FC = () => {
   const navigate = useNavigate();
+
+  const authContext = useContext(AuthContext);
 
   const { login } = useAuth();
 
@@ -29,12 +33,19 @@ export const Login: FC = () => {
     const requestBody = { email, password };
     try {
       const token = await login(requestBody);
-      setCookie("session-token", token);
+      setCookie(COOKIE_KEY.AUTH, token);
       navigate("/");
     } catch (e) {
       console.warn(e);
     }
   };
+
+  // sessionがない場合、login画面に遷移させる
+  useEffect(() => {
+    if (!!authContext) {
+      navigate("/");
+    }
+  }, [authContext]);
 
   return (
     <div>

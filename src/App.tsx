@@ -12,6 +12,8 @@ const App = () => {
 
   const authCookie = getCookie(COOKIE_KEY.AUTH);
 
+  console.log("auth : ", authCookie);
+
   return (
     <AuthContext.Provider value={authCookie}>
       <div className="App">

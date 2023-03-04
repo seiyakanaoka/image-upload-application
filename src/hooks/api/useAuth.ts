@@ -4,7 +4,6 @@ import { Auth } from "@/models/Auth";
 export const useAuth = () => {
   const login = async (requestBody: Auth): Promise<string> => {
     const token = await postLogin("/api/login", requestBody);
-    console.log("token: ", token);
     return token.token;
   };
 
