@@ -1,34 +1,57 @@
 import { FC, ChangeEventHandler, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/hooks/api/useAuth";
+import { useCookie } from "@/hooks/useCookie";
 
 export const Login: FC = () => {
-  const [userName, setUserName] = useState<string | undefined>();
+  const navigate = useNavigate();
 
-  const [passWord, setPassWord] = useState<string | undefined>();
+  const { login } = useAuth();
+
+  const { setCookie } = useCookie();
+
+  const [email, setEmail] = useState<string | undefined>();
+
+  const [password, setPassword] = useState<string | undefined>();
 
   const handleChangeUserName: ChangeEventHandler<HTMLInputElement> = (e) => {
-    setUserName(e.currentTarget.value);
+    setEmail(e.currentTarget.value);
   };
 
   const handleChangePassword: ChangeEventHandler<HTMLInputElement> = (e) => {
-    setPassWord(e.currentTarget.value);
+    setPassword(e.currentTarget.value);
+  };
+
+  const handleClick = async () => {
+    if (!email || !password) {
+      return;
+    }
+    const requestBody = { email, password };
+    try {
+      const token = await login(requestBody);
+      setCookie("session-token", token);
+      navigate("/");
+    } catch (e) {
+      console.warn(e);
+    }
   };
 
   return (
-    <form>
+    <div>
       <h1>Login</h1>
       <label>
-        ユーザー名
+        email
         <br />
-        <input value={userName} onChange={handleChangeUserName} />
+        <input value={email} onChange={handleChangeUserName} />
       </label>
       <br />
       <label>
         パスワード
         <br />
-        <input value={passWord} onChange={handleChangePassword} />
+        <input value={password} onChange={handleChangePassword} />
       </label>
       <br />
-      <button>login</button>
-    </form>
+      <button onClick={handleClick}>login</button>
+    </div>
   );
 };
