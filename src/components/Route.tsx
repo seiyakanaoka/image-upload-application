@@ -15,6 +15,7 @@ export const Route: FC = () => {
 
   const authContext = useContext(AuthContext);
 
+  // sessionがない場合、login画面に遷移させる
   useEffect(() => {
     if (authContext == undefined) {
       navigate("/login");

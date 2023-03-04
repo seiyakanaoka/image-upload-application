@@ -18,12 +18,16 @@ export const Login: FC = () => {
       <h1>Login</h1>
       <label>
         ユーザー名
+        <br />
         <input value={userName} onChange={handleChangeUserName} />
       </label>
+      <br />
       <label>
         パスワード
+        <br />
         <input value={passWord} onChange={handleChangePassword} />
       </label>
+      <br />
       <button>login</button>
     </form>
   );

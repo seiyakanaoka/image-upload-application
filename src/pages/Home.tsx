@@ -1,6 +1,6 @@
 import { FC, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { getProducts } from "@/actions/productAction";
+import { getProducts } from "@/actions/api/productAction";
 
 export const Home: FC = () => {
   const navigate = useNavigate();
