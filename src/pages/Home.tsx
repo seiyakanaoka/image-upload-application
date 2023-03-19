@@ -1,9 +1,11 @@
-import { FC } from "react";
+import { FC } from 'react';
 
-export const Home: FC = () => {
+const Home: FC = () => {
   return (
     <>
       <div>frontend-template-react-vite</div>
     </>
   );
 };
+
+export default Home;

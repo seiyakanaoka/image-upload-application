@@ -1,21 +1,11 @@
-import { Route } from '@/components/Route';
-import { COOKIE_KEY } from '@/constants/cookie';
-import { AuthContext } from '@/context/authContext';
-import { useCookie } from '@/hooks/useCookie';
-
 import './App.scss';
+import Routes from '@/pages/routes/Routes';
 
 const App = () => {
-  const { getCookie } = useCookie();
-
-  const authCookie = getCookie(COOKIE_KEY.AUTH);
-
   return (
-    <AuthContext.Provider value={authCookie}>
-      <div className="App">
-        <Route />
-      </div>
-    </AuthContext.Provider>
+    <div className="App">
+      <Routes />
+    </div>
   );
 };
 

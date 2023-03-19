@@ -1,17 +1,11 @@
-import { FC } from "react";
-import { useNavigate } from "react-router-dom";
+import { FC } from 'react';
 
-export const NotFound: FC = () => {
-  const navigate = useNavigate();
-
-  const handleRouterHome = () => {
-    navigate("/");
-  };
-
+const NotFound: FC = () => {
   return (
     <>
       <h1>Not Found</h1>
-      <button onClick={handleRouterHome}>Home</button>
     </>
   );
 };
+
+export default NotFound;
