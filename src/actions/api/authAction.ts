@@ -1,5 +1,5 @@
-import { axiosClient } from "@/utils/axiosClient";
 import { Auth, Token } from "@/models/Auth";
+import { axiosClient } from "@/utils/axiosClient";
 
 export const postLogin = async (
   apiPath: string,

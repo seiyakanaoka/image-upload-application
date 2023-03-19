@@ -1,9 +1,9 @@
 import { FC, useEffect, useContext } from "react";
 import { Routes, Route as RouteDom, useNavigate } from "react-router-dom";
-import { AuthContext } from "@/context/authContext";
 
-import { Login } from "@/pages/login";
+import { AuthContext } from "@/context/authContext";
 import { NotFound } from "@/pages/error/404/404";
+import { Login } from "@/pages/login";
 
 export const Route: FC = () => {
   const navigate = useNavigate();
