@@ -1,27 +1,47 @@
 {
   "compilerOptions": {
+    // コンパイルするJavaScriptのバージョン
+    // 参考
+    // https://typescriptbook.jp/reference/tsconfig/tsconfig.json-settings#target%E3%81%AF%E4%BD%95%E3%82%92%E6%8C%87%E5%AE%9A%E3%81%97%E3%81%9F%E3%82%89%E3%81%84%E3%81%84%E3%81%8B
     "target": "ESNext",
+    // ターゲットがESNextを含むES2022以上の場合はtrue、それ以外はfalseを設定する
     "useDefineForClassFields": true,
+    // targetに指定しているjsのバージョンには含まれていない、組み込みライブラリを使用する場合に指定する（非必須）
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    // trueにしておくと、.jsと.jsxもコンパイル対象に含まれるようになる。
     "allowJs": false,
+    // *.d.tsファイルに対する型チェックをスキップすることができる
     "skipLibCheck": true,
+    // import/exportに関する設定 https://qiita.com/karak/items/29ff148788f5abb15331
     "esModuleInterop": false,
+    // 合成デフォルトimport についての設定 https://www.typescriptlang.org/tsconfig/#allowSyntheticDefaultImports
     "allowSyntheticDefaultImports": true,
+    // 厳密な型チェックオプション
     "strict": true,
+    // インポートで大文字と小文字が正しいか確認する設定
     "forceConsistentCasingInFileNames": true,
+    // 生成されるモジュールコードの指定
     "module": "ESNext",
-    "moduleResolution": "Node",
+    // モジュールが AMD、UMD、System、またはES6/ES2015の場合は「Classic」
+    // モジュールがnode12またはnodenextの場合に一致
+    // それ以外の場合はノード
+    "moduleResolution": "node",
+    // .jsonファイルのインポートを有効にする
     "resolveJsonModule": true,
+    // シングルファイルでの変換で正しく扱えない可能性のあるコードについて、警告を出す設定
     "isolatedModules": true,
+    // コンパイルからのファイルの発行を無効にする設定
     "noEmit": true,
+    // 生成される JSX コードを指定
     "jsx": "react-jsx",
+    // ベース ディレクトリの指定
     "baseUrl": "./",
+    // インポートを追加の検索場所に再マップする一連のエントリを指定
     "paths": {
-      "@/*": [
-        "./src/*"
-      ],
+      "@/*": ["./src/*"]
     }
   },
+  // コンパイルする対象ファイルを記述する
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

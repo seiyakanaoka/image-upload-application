@@ -1,11 +1,9 @@
-import { Route } from "@/components/Route";
-import { COOKIE_KEY } from "@/constants/cookie";
+import { Route } from '@/components/Route';
+import { COOKIE_KEY } from '@/constants/cookie';
+import { AuthContext } from '@/context/authContext';
+import { useCookie } from '@/hooks/useCookie';
 
-import { useCookie } from "@/hooks/useCookie";
-
-import { AuthContext } from "@/context/authContext";
-
-import "./App.scss";
+import './App.scss';
 
 const App = () => {
   const { getCookie } = useCookie();
