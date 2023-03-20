@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 import style from './Login.module.scss';
 
@@ -7,13 +8,21 @@ import { LOGIN_VALUES_OPTION } from '@/constants/validation/login';
 import { LoginValues } from '@/models/validation/login';
 
 const Login: FC = () => {
+  const navigate = useNavigate();
+
   const {
     register,
-    formState: { errors },
+    formState: { errors, isValid },
+    handleSubmit,
   } = useForm<LoginValues>({ mode: 'onChange' });
 
+  const onSubmit: SubmitHandler<LoginValues> = (data) => {
+    console.log(JSON.stringify(data));
+    navigate('/');
+  };
+
   return (
-    <div className={style['login-page']}>
+    <form onSubmit={handleSubmit(onSubmit)} className={style['login-page']}>
       <main className={style['main-content']}>
         <div className={style['field-content']}>
           <label className={style['content']}>
@@ -37,10 +46,12 @@ const Login: FC = () => {
             )}
           </label>
         </div>
-        <button className={style['action']}>Login</button>
+        <button disabled={!isValid} className={style['action']}>
+          Login
+        </button>
       </main>
       <p className={style['message']}>forgot password?</p>
-    </div>
+    </form>
   );
 };
 
