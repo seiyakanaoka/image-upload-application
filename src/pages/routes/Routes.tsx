@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 
 import Page404 from '@/pages/error/404/404';
-import Home from '@/pages/Home';
+import Home from '@/pages/home/Home';
 import Login from '@/pages/login/Login';
 
 const Routes: FC = () => {
