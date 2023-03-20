@@ -1,3 +1,5 @@
+// background-color: #ffbaba;
+
 .login-page {
   display: flex;
   flex-direction: column;
@@ -20,11 +22,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 32px;
+  row-gap: 40px;
   width: 100%;
 
   > .action {
-    flex: 0;
     border: 1px solid white;
     border-radius: 8px;
     background-color: transparent;
@@ -46,21 +47,34 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 16px;
+  row-gap: 36px;
   width: 100%;
 
-  > .field {
-    width: 300px;
-    border: 0;
-    border-bottom: 1px solid rgba(white, 0.5);
-    font-size: 15px;
-    padding: 12px;
-    background-color: transparent;
-  }
+  > .content {
+    position: relative;
+    height: 100%;
 
-  > .field:focus {
-    background: white;
-    color: black;
-    transition: 250ms ease-in;
+    > .field {
+      width: 300px;
+      border: 0;
+      border-bottom: 1px solid rgba(white, 0.5);
+      font-size: 15px;
+      padding: 12px;
+      background-color: transparent;
+      color: white;
+    }
+
+    > .field:focus {
+      background: white;
+      color: black;
+      transition: 250ms ease-in;
+    }
+
+    > .message {
+      position: absolute;
+      transform: translateY(8px);
+      font-size: 13px;
+      color: #d8000c;
+    }
   }
 }
