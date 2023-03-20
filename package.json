@@ -6,6 +6,9 @@
   "scripts": {
     "dev": "vite --port 3000",
     "build": "tsc && vite build",
+    "build:dev": "tsc && vite build --mode dev",
+    "build:stg": "tsc && vite build --mode staging",
+    "build:prod": "tsc && vite build --mode production",
     "start": "vite preview --port 3000",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\"",
@@ -38,7 +41,7 @@
     "eslint-plugin-unused-imports": "^2.0.0",
     "prettier": "^2.8.4",
     "sass": "^1.58.0",
-    "typescript": "*",
+    "typescript": "^5.0.2",
     "vite": "^4.1.0"
   }
 }
