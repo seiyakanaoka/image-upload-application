@@ -4,7 +4,10 @@ import { useNavigate } from 'react-router-dom';
 
 import style from './Login.module.scss';
 
+import { PAGES_ROUTE } from '@/constants/common/route';
+import { JWT_TOKEN_COOKIE } from '@/constants/cookie/cookie';
 import { LOGIN_VALUES_OPTION } from '@/constants/validation/login';
+import { useCookie } from '@/hooks/common/useCookie';
 import { useLogin } from '@/hooks/useLogin';
 import { LoginValues } from '@/models/validation/login';
 
@@ -13,6 +16,8 @@ const Login: FC = () => {
 
   const { login } = useLogin();
 
+  const { setCookie } = useCookie();
+
   const {
     register,
     formState: { errors, isValid },
@@ -20,8 +25,10 @@ const Login: FC = () => {
   } = useForm<LoginValues>({ mode: 'onChange' });
 
   const onSubmit: SubmitHandler<LoginValues> = async (data) => {
-    await login(data);
-    navigate('/');
+    const token = await login(data);
+    console.log('token : ', token);
+    setCookie(JWT_TOKEN_COOKIE, token);
+    navigate(PAGES_ROUTE.LOGIN);
   };
 
   return (
