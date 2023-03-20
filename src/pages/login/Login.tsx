@@ -5,10 +5,13 @@ import { useNavigate } from 'react-router-dom';
 import style from './Login.module.scss';
 
 import { LOGIN_VALUES_OPTION } from '@/constants/validation/login';
+import { useLogin } from '@/hooks/useLogin';
 import { LoginValues } from '@/models/validation/login';
 
 const Login: FC = () => {
   const navigate = useNavigate();
+
+  const { login } = useLogin();
 
   const {
     register,
@@ -16,8 +19,8 @@ const Login: FC = () => {
     handleSubmit,
   } = useForm<LoginValues>({ mode: 'onChange' });
 
-  const onSubmit: SubmitHandler<LoginValues> = (data) => {
-    console.log(JSON.stringify(data));
+  const onSubmit: SubmitHandler<LoginValues> = async (data) => {
+    await login(data);
     navigate('/');
   };
 
