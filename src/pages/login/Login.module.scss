@@ -1,4 +1,4 @@
-@import '../../assets/style/resources.scss';
+@import '../../assets/style/resources';
 
 .login-page {
   display: flex;
@@ -14,13 +14,13 @@
     row-gap: 40px;
     align-items: center;
     padding: 80px;
-    border-radius: 24px;
     border: 1px solid rgba($color-base-white, 0.5);
+    border-radius: 24px;
 
     > .message {
+      font-size: 15px;
       color: $color-base-white;
       cursor: pointer;
-      font-size: 15px;
     }
   }
 }
@@ -28,39 +28,39 @@
 .main-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
   row-gap: 40px;
+  align-items: center;
   width: 100%;
 
   > .action {
+    padding: 12px 24px;
+    color: $color-base-white;
+    cursor: pointer;
     background-color: $color-background-black;
     border: 1px solid $color-base-white;
     border-radius: 8px;
-    color: $color-base-white;
-    padding: 12px 24px;
-    cursor: pointer;
   }
 
   > .action:hover,
   > .action:focus {
-    background: $color-base-white;
     color: $color-base-black;
+    background: $color-base-white;
     transition: 250ms ease-in;
   }
 
   > .action:disabled {
-    background-color: $color-background-black;
     color: $color-base-white;
-    opacity: 0.65;
     cursor: not-allowed;
+    background-color: $color-background-black;
+    opacity: 0.65;
   }
 }
 
 .field-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
   row-gap: 36px;
+  align-items: center;
   width: 100%;
 
   > .content {
@@ -69,25 +69,25 @@
 
     > .field {
       width: 300px;
+      padding: 12px;
+      font-size: 15px;
+      color: $color-base-white;
+      background-color: transparent;
       border: 0;
       border-bottom: 1px solid rgba($color-base-white, 0.5);
-      font-size: 15px;
-      padding: 12px;
-      background-color: transparent;
-      color: $color-base-white;
     }
 
     > .field:focus {
-      background: $color-base-white;
       color: $color-base-black;
+      background: $color-base-white;
       transition: 250ms ease-in;
     }
 
     > .message {
       position: absolute;
-      transform: translateY(8px);
       font-size: 13px;
       color: $color-validation-error-text;
+      transform: translateY(8px);
     }
   }
 }
