@@ -1,4 +1,4 @@
-// background-color: #ffbaba;
+@import '../../assets/style/resources.scss';
 
 .login-page {
   display: flex;
@@ -9,10 +9,10 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  background-color: #222;
+  background-color: $color-background-black;
 
   > .message {
-    color: white;
+    color: $color-base-white;
     cursor: pointer;
     font-size: 15px;
   }
@@ -26,10 +26,10 @@
   width: 100%;
 
   > .action {
-    border: 1px solid white;
+    border: 1px solid $color-base-white;
     border-radius: 8px;
     background-color: transparent;
-    color: white;
+    color: $color-base-white;
     padding: 12px 24px;
     cursor: pointer;
     transition: 250ms ease-in;
@@ -37,8 +37,8 @@
 
   > .action:hover,
   > .action:focus {
-    background: white;
-    color: black;
+    background: $color-base-white;
+    color: $color-base-black;
     transition: 250ms ease-in;
   }
 }
@@ -57,16 +57,16 @@
     > .field {
       width: 300px;
       border: 0;
-      border-bottom: 1px solid rgba(white, 0.5);
+      border-bottom: 1px solid rgba($color-base-white, 0.5);
       font-size: 15px;
       padding: 12px;
       background-color: transparent;
-      color: white;
+      color: $color-base-white;
     }
 
     > .field:focus {
-      background: white;
-      color: black;
+      background: $color-base-white;
+      color: $color-base-black;
       transition: 250ms ease-in;
     }
 
@@ -74,7 +74,7 @@
       position: absolute;
       transform: translateY(8px);
       font-size: 13px;
-      color: #d8000c;
+      color: $color-validation-error-text;
     }
   }
 }
