@@ -12,6 +12,8 @@
     "start": "vite preview --port 3000",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\"",
+    "lint:css": "prettier-stylelint-formatter 'src/**/*.{css,scss}'",
+    "lint:css:fix": "prettier-stylelint-formatter --quiet --write 'src/**/*.{css,scss}'",
     "format": "prettier -w \"src/**/*.{js,jsx,ts,tsx}\"",
     "fix": "yarn format && yarn lint"
   },
