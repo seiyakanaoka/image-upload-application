@@ -1,4 +1,4 @@
-@import '../../assets/style/resources.scss';
+@import '../../assets/style/resources';
 
 .home-page {
   display: flex;
@@ -10,8 +10,8 @@
 
   > .action {
     padding: 12px 24px;
+    cursor: pointer;
     background-color: $color-base-white;
     border-radius: 8px;
-    cursor: pointer;
   }
 }
