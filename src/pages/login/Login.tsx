@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 
 import style from './Login.module.scss';
 
+import { LOGIN_VALUES_OPTION } from '@/constants/validation/login';
 import { LoginValues } from '@/models/validation/login';
 
 const Login: FC = () => {
@@ -11,30 +12,28 @@ const Login: FC = () => {
     formState: { errors },
   } = useForm<LoginValues>({ mode: 'onChange' });
 
-  console.log('errors  :  ', errors);
-
   return (
     <div className={style['login-page']}>
       <main className={style['main-content']}>
         <div className={style['field-content']}>
           <label className={style['content']}>
             <input
-              {...register('email', { required: true })}
+              {...register('email', LOGIN_VALUES_OPTION.email)}
               className={style['field']}
               placeholder="Email"
             />
-            {!!errors.email && (
-              <p className={style['message']}>Emailを入力してください</p>
+            {!!errors.email?.message && (
+              <p className={style['message']}>{errors.email.message}</p>
             )}
           </label>
           <label className={style['content']}>
             <input
-              {...register('password', { required: true })}
+              {...register('password', LOGIN_VALUES_OPTION.password)}
               className={style['field']}
               placeholder="Password"
             />
-            {!!errors.password && (
-              <p className={style['message']}>パスワードを入力してください</p>
+            {!!errors.password?.message && (
+              <p className={style['message']}>{errors.password.message}</p>
             )}
           </label>
         </div>
