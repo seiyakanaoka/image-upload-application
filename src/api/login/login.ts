@@ -5,6 +5,6 @@ import { axiosClient } from '@/utils/axiosClient';
 export const postLogin = async (
   path: ApiPath,
   requestBody: LoginRequestBody
-) => {
+): Promise<void> => {
   await axiosClient.post(path, requestBody);
 };
