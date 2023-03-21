@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
@@ -16,7 +16,9 @@ const Login: FC = () => {
 
   const { login } = useLogin();
 
-  const { setCookie } = useCookie();
+  const { getCookie, setCookie } = useCookie();
+
+  const tokenCookie = getCookie(JWT_TOKEN_COOKIE);
 
   const {
     register,
@@ -30,6 +32,12 @@ const Login: FC = () => {
     setCookie(JWT_TOKEN_COOKIE, token);
     navigate(PAGES_ROUTE.LOGIN);
   };
+
+  useEffect(() => {
+    if (!!tokenCookie) {
+      navigate(PAGES_ROUTE.HOME);
+    }
+  }, [tokenCookie]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={style['login-page']}>

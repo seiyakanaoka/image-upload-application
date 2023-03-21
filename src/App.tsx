@@ -14,15 +14,9 @@ const App = () => {
 
   const tokenCookie = getCookie(JWT_TOKEN_COOKIE);
 
-  console.log('tokenCookie : ', tokenCookie);
-
   useEffect(() => {
     if (typeof tokenCookie === 'undefined') {
-      console.log('通った');
       navigate(PAGES_ROUTE.LOGIN);
-    } else {
-      console.log('通った?');
-      navigate(PAGES_ROUTE.HOME);
     }
   }, [tokenCookie]);
 
