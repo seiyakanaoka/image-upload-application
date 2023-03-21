@@ -15,7 +15,7 @@ const Home: FC = () => {
   return (
     <div className={style['home-page']}>
       <button onClick={handleClickRouterImage} className={style['action']}>
-        画像を投稿する
+        Seiyaさん
       </button>
     </div>
   );
