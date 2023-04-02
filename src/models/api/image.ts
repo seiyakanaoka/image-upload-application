@@ -5,3 +5,7 @@ export interface ImageResponse {
 export interface ImagesResponse {
   images: ImageResponse[];
 }
+
+export interface ImageForm {
+  image: Blob;
+}

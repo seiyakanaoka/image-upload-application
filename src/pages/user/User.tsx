@@ -5,11 +5,12 @@ import style from './User.module.scss';
 
 import { PAGES_ROUTE } from '@/constants/common/route';
 import { useImage } from '@/hooks/useImage';
+import { ImageResponse } from '@/models/api/image';
 
 const User: FC = () => {
   const navigate = useNavigate();
 
-  const [image, setImage] = useState<string | undefined>();
+  const [images, setImages] = useState<Array<ImageResponse>>([]);
 
   const { getImage } = useImage();
 
@@ -19,8 +20,8 @@ const User: FC = () => {
 
   useEffect(() => {
     const getUrl = async () => {
-      const url = await getImage();
-      setImage(url);
+      const images = await getImage();
+      setImages(images);
     };
     getUrl();
   }, []);
@@ -28,7 +29,14 @@ const User: FC = () => {
   return (
     <div className={style['user-page']}>
       <div className={style['image-content']}>
-        <img className={style['image']} src={image} alt="" />
+        {images.map((image, index) => (
+          <img
+            key={index}
+            className={style['image']}
+            src={image.imageUrl}
+            alt=""
+          />
+        ))}
       </div>
       <button onClick={handleClickRouterImage} className={style['action']}>
         投稿

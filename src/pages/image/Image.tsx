@@ -5,13 +5,17 @@ import { useNavigate } from 'react-router-dom';
 import style from './Image.module.scss';
 
 import { PAGES_ROUTE } from '@/constants/common/route';
+import { useImage } from '@/hooks/useImage';
+import { ImageForm } from '@/models/api/image';
 
 const Image: FC = () => {
   const navigate = useNavigate();
 
+  const { uploadImage } = useImage();
+
   const [image, setImage] = useState<string | undefined>();
 
-  const { setValue } = useForm<{ prefix: string; image: Blob }>({
+  const { setValue, watch } = useForm<ImageForm>({
     mode: 'onChange',
   });
 
@@ -28,7 +32,8 @@ const Image: FC = () => {
     setValue('image', uploadImage);
   };
 
-  const handleClick = () => {
+  const handleClick = async () => {
+    await uploadImage(watch().image);
     navigate(PAGES_ROUTE.USER);
   };
 
