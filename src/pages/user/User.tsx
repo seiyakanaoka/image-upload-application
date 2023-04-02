@@ -17,8 +17,6 @@ const User: FC = () => {
     navigate(PAGES_ROUTE.IMAGE);
   };
 
-  console.log('回ってる');
-
   useEffect(() => {
     const getUrl = async () => {
       const url = await getImage();
